@@ -61,13 +61,7 @@ public class SaveImageGallery extends CordovaPlugin {
             this._args = args;
             this._callback = callbackContext;
 
-            if (PermissionHelper.hasPermission(this, WRITE_EXTERNAL_STORAGE)) {
-                Log.d("SaveImageGallery", "Permissions already granted, or Android version is lower than 6");
-                saveBase64Image(this._args, this._callback);
-            } else {
-                Log.d("SaveImageGallery", "Requesting permissions for WRITE_EXTERNAL_STORAGE");
-                PermissionHelper.requestPermission(this, WRITE_PERM_REQUEST_CODE, WRITE_EXTERNAL_STORAGE);
-            }
+            saveBase64Image(this._args, this._callback);
         }
 
         return true;
